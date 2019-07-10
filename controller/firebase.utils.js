@@ -7,7 +7,7 @@ const validateData = require('./dataValidator')
 
 // Initialize Rebrandly
 const linkRequest = {
-  destination: 'https://www.youtube.com/channel/UCHK4HD0ltu1-I212icLPt3g',
+  destination: 'https://custom-sendgrid-api.herokuapp.com/order-details',
   domain: { fullName: 'rebrand.ly' },
 }
 const requestHeaders = {
