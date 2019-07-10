@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const updateFormData = require('./controller/formDataUpdater')
+const { addRecord, loadRecord } = require('./controller/firebase.utils')
 
 const port = process.env.PORT || 8000
 let formData = {}
@@ -13,12 +13,10 @@ app.use(cors())
 app.use(express.json())
 
 // http GET enpoint
-app.get('/get-form-data', function(req, res) {
-  res.send(formData)
-})
+app.get('/get-form-data', loadRecord())
 
 // http POST endpoint
-app.post('/submit-form', updateFormData(formData))
+app.post('/submit-form', addRecord())
 
 // Server runner
 app.listen(port, function() {
